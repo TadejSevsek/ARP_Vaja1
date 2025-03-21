@@ -39,11 +39,19 @@ int main(int argc, const char* argv[]) {
 			if (A[i] < min) {
 				min = A[i];
 			}
+			if (A[i] > max) {
+				max = A[i];
+			}
 		}
 		for (int i = 0; i < A.size(); i++) {
 			A[i] -= min;
 		}
 		max -= min;
+		int size = max + 1;
+		int* C = new int[size];
+		for (int i = 0; i < size; i++) {
+			C[i] = 0;
+		}
 	}
 	else {
 		//Roman sort
