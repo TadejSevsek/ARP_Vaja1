@@ -55,6 +55,9 @@ int main(int argc, const char* argv[]) {
 		for (int i = 0; i < A.size(); i++) {
 			C[A[i]] = C[A[i]]+1;
 		}
+		for (int i = 1; i < size; i++) {
+			C[i] += C[i - 1];
+		}
 	}
 	else {
 		//Roman sort
