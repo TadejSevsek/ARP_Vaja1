@@ -33,7 +33,40 @@ int main(int argc, const char* argv[]) {
 	if (!Branje_Stevil(A, argv[2])) return 0;
 
 	if (argv[1][0] == '0') {
-	        //Counting sort
+		int min = A[0];
+
+		for (int i = 0; i < A.size(); i++) {
+			if (A[i] < min) {
+				min = A[i];
+			}
+			if (A[i] > max) {
+				max = A[i];
+			}
+		}
+		for (int i = 0; i < A.size(); i++) {
+			A[i] -= min;
+		}
+		max -= min;
+		int size = max + 1;
+		int* C = new int[size];
+		for (int i = 0; i < size; i++) {
+			C[i] = 0;
+		}
+		for (int i = 0; i < A.size(); i++) {
+			C[A[i]] = C[A[i]]+1;
+		}
+		for (int i = 1; i < size; i++) {
+			C[i] += C[i - 1];
+		}
+		int* B = new int[A.size()];
+		for (int j = A.size()-1; j > -1; j--) {
+			B[C[A[j]] - 1] = A[j];
+			C[A[j]]--;
+		}
+		for (int i = 0; i < A.size(); i++) {
+			B[i] += min;
+		}
+		Izpis_Stevil(B, A.size());
 	}
 	else {
 		//Roman sort
