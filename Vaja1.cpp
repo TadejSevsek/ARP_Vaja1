@@ -63,6 +63,10 @@ int main(int argc, const char* argv[]) {
 			B[C[A[j]] - 1] = A[j];
 			C[A[j]]--;
 		}
+		for (int i = 0; i < A.size(); i++) {
+			B[i] += min;
+		}
+		Izpis_Stevil(B, A.size());
 	}
 	else {
 		//Roman sort
