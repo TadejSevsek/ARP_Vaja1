@@ -69,7 +69,31 @@ int main(int argc, const char* argv[]) {
 		Izpis_Stevil(B, A.size());
 	}
 	else {
-		//Roman sort
+		int min = A[0];
+		int max = A[0];
+		for (int i = 0; i < A.size(); i++) {
+			if (A[i] < min) {
+				min = A[i];
+
+			}
+			if (A[i] > max) {
+				max = A[i];
+			}
+		}
+
+		for (int i = 0; i < A.size(); i++) {
+			A[i] -= min;
+		}
+		max -= min;
+		int size = max + 1;
+		int* C = new int[size];
+		for (int i = 0; i < size; i++) {
+			C[i] = 0;
+		}
+
+		for (int i = 0; i < A.size(); i++) {
+			C[A[i]] = C[A[i]] + 1;
+		}
 	}
 	Izpis_Stevil(&A[0],A.size());
 
