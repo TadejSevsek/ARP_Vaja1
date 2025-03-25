@@ -69,7 +69,7 @@ int main(int argc, const char* argv[]) {
 		Izpis_Stevil(B, A.size());
 	}
 	else {
-		int min = A[0];
+		nt min = A[0];
 		int max = A[0];
 		for (int i = 0; i < A.size(); i++) {
 			if (A[i] < min) {
@@ -94,8 +94,18 @@ int main(int argc, const char* argv[]) {
 		for (int i = 0; i < A.size(); i++) {
 			C[A[i]] = C[A[i]] + 1;
 		}
+		
+		int* B = new int[A.size()];
+		int index = 0; 
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < C[i]; j++) {
+				B[index] = i+min;
+				index++;
+			}
+		}
+		Izpis_Stevil(B, A.size());
 	}
-	Izpis_Stevil(&A[0],A.size());
+
 
 	return 0;
 }
